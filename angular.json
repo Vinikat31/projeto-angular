@@ -7,7 +7,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "peojeto-angular": {
+    "projeto-angular": {
       "projectType": "application",
       "schematics": {},
       "root": "",
