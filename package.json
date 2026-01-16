@@ -1,13 +1,12 @@
 {
-  "name": "peojeto-angular",
+  "name": "projeto-angular",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "serve:ssr:peojeto-angular": "node dist/peojeto-angular/server/server.mjs"
+    "test": "ng test"
   },
   "prettier": {
     "printWidth": 100,
@@ -30,7 +29,6 @@
     "@angular/forms": "^21.1.0",
     "@angular/platform-browser": "^21.1.0",
     "@angular/router": "^21.1.0",
-    "@angular/ssr": "^21.1.0",
     "chart.js": "^4.5.1",
     "jszip": "^3.10.1",
     "rxjs": "~7.8.0",
