@@ -1,0 +1,30 @@
+.container { max-width: 1200px; margin: 0 auto; font-family: Arial; }
+
+.main {
+  display: flex;
+  gap: 20px;
+}
+
+/* Coluna esquerda: árvore menor */
+.tree-column {
+  flex: 1;
+  max-width: 300px;
+  overflow-y: auto;
+  border-right: 1px solid #ccc;
+  padding-right: 10px;
+}
+
+/* Coluna direita: visualizador maior */
+.viewer-column {
+  flex: 2.5; /* mais largo que a árvore */
+  padding-left: 20px;
+}
+
+.tree { list-style-type: none; padding-left: 20px; }
+.node { cursor: pointer; padding: 2px 5px; border-radius: 4px; display: inline-block; }
+.node.folder::before { content: "📁 "; }
+.node.file::before { content: "📄 "; }
+.node:hover { background-color: #e0e0e0; }
+
+.file-viewer { background-color: #f8f8f8; padding: 12px; border-radius: 4px; overflow-x: auto; margin-top: 10px; }
+pre { white-space: pre-wrap; word-wrap: break-word; font-size: 0.9em; }

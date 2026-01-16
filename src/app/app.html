@@ -1,0 +1,42 @@
+<div class="container">
+  <h1>Visualizador de RMN</h1>
+
+  <input type="file" accept=".zip" (change)="onFileSelected($event)" />
+
+  <p *ngIf="zipName">ZIP carregado: <strong>{{ zipName }}</strong></p>
+
+  <hr />
+
+  <div class="main">
+    <!-- Coluna esquerda: árvore -->
+    <div class="tree-column">
+      <ul class="tree">
+        <ng-container *ngFor="let node of treeData">
+          <ng-template [ngTemplateOutlet]="renderNode" [ngTemplateOutletContext]="{ node: node }"></ng-template>
+        </ng-container>
+      </ul>
+    </div>
+
+    <!-- Coluna direita: visualizador + gráfico -->
+    <div class="viewer-column">
+      <h3 *ngIf="selectedFileName">Arquivo: {{ selectedFileName }}</h3>
+      <pre *ngIf="fileContent">{{ fileContent }}</pre>
+      <canvas #chartCanvas width="700" height="400" [style.display]="selectedFileName ? 'block' : 'none'"></canvas>
+    </div>
+  </div>
+
+  <!-- Template recursivo para árvore -->
+  <ng-template #renderNode let-node="node">
+    <li>
+      <span class="node" [class.folder]="node.type==='folder'" [class.file]="node.type==='file'"
+            (click)="toggleNode(node, $event)">
+        {{ node.name }}
+      </span>
+      <ul *ngIf="node.children && node.expanded">
+        <ng-container *ngFor="let child of node.children">
+          <ng-template [ngTemplateOutlet]="renderNode" [ngTemplateOutletContext]="{ node: child }"></ng-template>
+        </ng-container>
+      </ul>
+    </li>
+  </ng-template>
+</div>
