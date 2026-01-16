@@ -62,10 +62,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "peojeto-angular:build:production"
+              "buildTarget": "projeto-angular:build:production"
             },
             "development": {
-              "buildTarget": "peojeto-angular:build:development"
+              "buildTarget": "projeto-angular:build:development"
             }
           },
           "defaultConfiguration": "development"
